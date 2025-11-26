@@ -5,6 +5,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import RSVP from './components/RSVP'
 import Story from './components/Story'
+import Notify from './components/Notify'
+import Map from './components/Map'
 
 export default function App(){
   return (
@@ -29,6 +31,8 @@ export default function App(){
       <main>
         <Hero />
         <Details />
+        <Notify />
+        <Map />
         <Story />
         <Gallery />
         <RSVP />
