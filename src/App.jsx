@@ -3,10 +3,10 @@ import Footer from './components/Footer'
 import Gallery from './components/Gallery'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Map from './components/Map'
+import Notify from './components/Notify'
 import RSVP from './components/RSVP'
 import Story from './components/Story'
-import Notify from './components/Notify'
-import Map from './components/Map'
 
 export default function App(){
   return (
@@ -23,8 +23,8 @@ export default function App(){
       </div>
 
       <div className="flower">
-        <img src="/assets/f1.webp" className='flower-left' alt="" />
-        <img src="/assets/f1.webp" className='flower-right' alt="" />
+        <img src="/assets/garland1.png" className='flower-left' alt="" />
+        <img src="/assets/garland1.png" className='flower-right' alt="" />
       </div>
 
       <Header />

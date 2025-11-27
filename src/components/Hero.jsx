@@ -9,6 +9,7 @@ export default function Hero(){
         </div>
         <div className="hero-text">
           <h1 className="names">Ananya & Raj</h1>
+          <p className="headline">We cordially invite you to join us</p>
           <p className="date">Saturday, December 20, 2025 • 5:00 PM</p>
           <p className="venue">The Grand Palace, Mumbai</p>
         </div>
