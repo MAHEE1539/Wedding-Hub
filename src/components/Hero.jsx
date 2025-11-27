@@ -4,9 +4,10 @@ export default function Hero(){
     <section className="hero">
       <div className="hero-bg" style={{backgroundImage:`url('/assets/hero.jpg')`}} />
       <div className="container hero-content">
-        <div className="couple-photo">
+        <div className="couple-photo" data-animate-on-scroll>
           <img src="/assets/couple.jpg" alt="Couple" />
         </div>
+        
         <div className="hero-text">
           <h1 className="names">Ananya & Raj</h1>
           <p className="headline">We cordially invite you to join us</p>

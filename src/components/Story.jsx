@@ -32,7 +32,7 @@ export default function Story(){
       <p className="story-intro">A journey of love, laughter, and unforgettable moments...</p>
       <div className="story-timeline">
         {moments.map((moment, idx) => (
-          <div key={idx} className="story-card">
+          <div key={idx} className="story-card" data-animate-on-scroll>
             <div className="story-card-icon">{moment.icon}</div>
             <div className="story-card-content">
               <h3>{moment.title}</h3>

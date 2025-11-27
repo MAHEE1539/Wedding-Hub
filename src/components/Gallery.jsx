@@ -10,7 +10,7 @@ export default function Gallery(){
       <h2>Gallery</h2>
       <div className="gallery-grid">
         {images.map((src,i)=> (
-          <div key={i} className="gallery-item">
+          <div key={i} className="gallery-item" data-animate-on-scroll>
             <img src={src} alt={`Gallery ${i+1}`} />
           </div>
         ))}

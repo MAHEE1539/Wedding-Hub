@@ -137,7 +137,8 @@ body{
 .site-header{
   position:fixed;top:0;left:0;right:0;
   background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.92));
-  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   border-bottom:1px solid rgba(0,0,0,0.04);
   z-index:60;
   will-change:transform,box-shadow;
@@ -459,6 +460,76 @@ body{
 
 .gallery-item:hover::after{ opacity:1 }
 .gallery-item:hover .caption{ opacity:1; transform:translateY(0) }
+
+/* Scroll-trigger parity: allow touch/scroll to trigger the same visuals as hover
+   Elements observed by IntersectionObserver receive an `in-view` class. */
+.logo.in-view{
+  transform: translateY(-3px) rotate(-0.5deg) scale(1.02);
+  box-shadow: var(--soft-shadow);
+}
+.nav a.in-view{ transform: translateY(-4px); color:var(--accent-dark) }
+.nav a.in-view::after{ transform:translateX(-50%) scaleX(1); opacity:1 }
+.btn-primary.in-view{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--soft-shadow-2);
+}
+.btn-primary.in-view::after{ opacity:1 }
+
+/* Couple photo: mirror hover effects when the element itself gets .in-view */
+.couple-photo.in-view img{
+  transform: translateY(-8px) rotate(-2deg) scale(1.03);
+  box-shadow: 0 22px 60px rgba(15,15,15,0.18);
+}
+.couple-photo.in-view::after{
+  content:"";position:absolute;left:-50%;top:10%;width:80%;height:60%;transform:skewX(-12deg);background:linear-gradient(90deg, rgba(255,255,255,0.00), rgba(255,255,255,0.18), rgba(255,255,255,0.00));z-index:3;animation:shimmer 950ms linear;
+}
+
+/* Hero names micro-interaction on scroll */
+.names.in-view{ letter-spacing:3px }
+
+/* Cards */
+.card.in-view{
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 28px 70px rgba(107,31,42,0.15);
+  border-color: rgba(212,175,55,0.4);
+  background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,250,240,1) 100%);
+}
+.card.in-view::after{
+  content:"";position:absolute;inset:0;border-radius:12px;padding:2px;background: linear-gradient(180deg, rgba(255,255,255,0.00), rgba(212,175,55,0.05));pointer-events:none;
+}
+
+/* Story cards */
+.story-card.in-view{
+  transform: translateY(-12px) scale(1.01);
+  box-shadow: 0 24px 60px rgba(107,31,42,0.15);
+  border-color: rgba(212,175,55,0.35);
+}
+.story-card.in-view::before{ height:6px }
+.story-card.in-view .story-card-icon{ transform: scale(1.15) rotate(5deg); }
+.story-inner.in-view{ transform: translateY(-6px); opacity:0.97; box-shadow: var(--soft-shadow) }
+
+/* Gallery items */
+.gallery-item.in-view{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 22px 60px rgba(212,175,55,0.16);
+  z-index:6;
+  border-color: rgba(212,175,55,0.4);
+}
+.gallery-item.in-view img{
+  transform: scale(1.08);
+  filter: saturate(1.15) contrast(1.05) brightness(0.95);
+}
+.gallery-item.in-view::after{ opacity:1 }
+.gallery-item.in-view .caption{ opacity:1; transform:translateY(0) }
+
+/* RSVP inputs/buttons (in case these are observed) */
+.rsvp-form input.in-view,.rsvp-form select.in-view{ transform: translateY(-3px) }
+.rsvp-form button.btn-primary.in-view{ box-shadow: 0 18px 60px rgba(197,155,107,0.12) }
+.rsvp-thanks.in-view{ transform: translateY(-6px); box-shadow: var(--soft-shadow-2) }
+
+/* Footer micro interactions */
+.site-footer p.in-view{ color:var(--accent-dark); transform: translateY(-4px) }
+
 
 /* optional small decorative tag on hover */
 .gallery-item .caption::before{

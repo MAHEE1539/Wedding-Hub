@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Details from './components/Details'
 import Footer from './components/Footer'
 import Gallery from './components/Gallery'
@@ -9,6 +10,22 @@ import RSVP from './components/RSVP'
 import Story from './components/Story'
 
 export default function App(){
+  useEffect(()=>{
+    const nodes = Array.from(document.querySelectorAll('[data-animate-on-scroll]'))
+    if(!nodes.length) return
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view')
+        } else {
+          entry.target.classList.remove('in-view')
+        }
+      })
+    }, { threshold: 0.35 })
+    nodes.forEach(n=>obs.observe(n))
+    return ()=> obs.disconnect()
+  }, [])
+
   return (
     <div className="site-root">
       {/* Floating flowers (decorative) - uses images placed in `public/assets/` named float1, float2, ... */}
